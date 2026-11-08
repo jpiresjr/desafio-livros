@@ -1,0 +1,48 @@
+<button
+    type="button"
+    class="btn btn-outline-danger"
+    data-bs-toggle="modal"
+    data-bs-target="#modalExcluirLivro"
+>
+    Excluir livro
+</button>
+
+<div class="modal fade" id="modalExcluirLivro" tabindex="-1"
+     aria-labelledby="modalExcluirLivroLabel" aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalExcluirLivroLabel">
+                    Excluir livro?
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+
+            <div class="modal-body">
+                Tem certeza que deseja excluir o livro
+                <strong>{{ livro.titulo }}</strong>?
+
+                <p class="text-muted mt-2 mb-0">Esta ação não poderá ser desfeita.</p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    Cancelar
+                </button>
+
+                <form method="post" action="{{ path('app_livro_delete', {'id': livro.id}) }}">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ livro.id) }}">
+
+                    <button type="submit" class="btn btn-danger">
+                        Sim, excluir livro
+                    </button>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

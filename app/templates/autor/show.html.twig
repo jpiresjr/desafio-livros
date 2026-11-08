@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Detalhes do Autor{% endblock %}
+
+{% block body %}
+
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-8 col-lg-6">
+
+            <div class="card border-0 shadow-sm rounder-3">
+                <div class="card-body p-4">
+
+                    <div class="d-flex align-items-center gap-3 mb-4">
+                        <i class="bi bi-person-vcard fs-3 text-secondary"></i>
+
+                        <div>
+                            <h1 class="h5 fw-semibold mb-1">
+                                Detalhes do autor
+                            </h1>
+
+                            <p class="text-muted small mb-0">
+                                Informações do autor cadastrado
+                            </p>
+                        </div>
+                    </div>
+
+                    <hr class="mb-4">
+
+                    <table class="table table-bordered align-middle mb-4">
+                        <tbody>
+                            <tr>
+                                <th scope="row" style="width: 100px">
+                                    Código
+                                </th>
+                                <td>{{ autor.id }}</td>
+                                <tr>
+                                    <th scope="row">
+                                        Nome
+                                    </th>
+                                    <td>{{ autor.nome }}</td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                    <div class="d-flex flex-wrap justify-content-end gap-2">
+
+                        <a href="{{ path('app_autor_index') }}" class="btn btn-outline-secondary">
+                            Voltar
+                        </a>
+
+                        <a href="{{ path('app_autor_edit', {'id': autor.id}) }}" class="btn btn-dark">
+                            <i class="bi bi-pencil-square me-1">
+                                Editar
+                            </i>
+                        </a>
+
+                        {{ include('autor/_delete_form.html.twig') }}
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}

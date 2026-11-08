@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Relatórios{% endblock %}
+
+{% block body %}
+
+    <div class="d-flex align-items-center gap-3 mb-4">
+        <i class="bi bi-bar-chart-line fs-3 text-secondary"></i>
+
+        <div>
+            <h2 class="fw-bold text-secondary text-uppercase mb-1">
+                Relatórios
+            </h2>
+            <p class="text-muted small mb-0">
+                Relação de livros cadastrados, agrupados por autor.
+            </p>
+        </div>
+    </div>
+
+    <div class="card shadow-sm border-0 rounded-3">
+        <div class="card-body p-3">
+            <div class="table-responsive tabela-relatorio">
+                {{ tabela|raw }}
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .tabela-relatorio table {
+            width: 100%;
+            min-width: 950px;
+            margin-bottom: 0;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .tabela-relatorio thead th {
+            background-color: #f8f9fa !important;
+            color: #6c757d;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            padding: 14px 16px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .tabela-relatorio tbody td {
+            padding: 14px 16px;
+            vertical-align: middle;
+            border-bottom: 1px solid #f1f3f5;
+        }
+
+        .tabela-relatorio tbody tr:hover td {
+            background-color: #f8f9fa;
+        }
+
+        .tabela-relatorio tbody tr:has(td[colspan]) td {
+            background-color: #f8f9fa !important;
+            color: #343a40;
+            font-weight: 600;
+            padding: 13px 16px;
+            border-left: 3px solid #212529;
+        }
+
+        .tabela-relatorio tbody tr:has(td[colspan]):hover td {
+            background-color: #f8f9fa !important;
+        }
+
+        .tabela-relatorio td {
+            overflow-wrap: anywhere;
+        }
+    </style>
+
+{% endblock %}

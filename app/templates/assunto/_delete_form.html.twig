@@ -1,0 +1,48 @@
+<button
+    type="button"
+    class="btn btn-outline-danger"
+    data-bs-toggle="modal"
+    data-bs-target="#modalExcluirAssunto"
+>
+    Excluir Assunto
+</button>
+
+<div class="modal fade" id="modalExcluirAssunto" tabindex="-1"
+     aria-labelledby="modalExcluirAssuntoLabel" aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalExcluirAssuntoLabel">
+                    Excluir assunto?
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+
+            <div class="modal-body">
+                Tem certeza que deseja excluir este assunto
+                <strong>{{ assunto.descricao }}</strong>?
+
+                <p class="text-muted mt-2 mb-0">Esta ação não poderá ser desfeita.</p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    Cancelar
+                </button>
+
+                <form method="post" action="{{ path('app_assunto_delete', {'id': assunto.id}) }}">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ assunto.id) }}">
+
+                    <button type="submit" class="btn btn-danger">
+                        Sim, excluir assunto
+                    </button>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

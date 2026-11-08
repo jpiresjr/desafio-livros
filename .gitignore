@@ -1,0 +1,22 @@
+# IDE's
+.idea
+.vscode/
+
+# Dependências
+app/vendor
+app/node_modules
+
+# Config Locais
+app/.env.local
+app/.env.*.local
+
+# Cache/Logs
+app/var
+
+# Arquivos gerados
+app/public/bundles/
+app/.phpunit.cache/
+app/.phpunit.result.cache
+
+# KoolReport arquivos gerados
+app/public/koolreport_assets
