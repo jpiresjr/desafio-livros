@@ -9,6 +9,21 @@
         <link rel="stylesheet"
               href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+
+
+        <style>
+            body {
+                background-image: url('{{ asset('images/plano-fundo.jpeg') }}');
+                background-size: 100% 100%;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                min-height: 100vh;
+            }
+        </style>
+
+
+
         {% block stylesheets %}
         {% endblock %}
 
@@ -22,10 +37,31 @@
                     Sistema de Livros
                 </a>
                     <div class="navbar-nav">
-                        <a class="nav-link " href="{{ path('app_autor_index') }}">Autores</a>
-                        <a class="nav-link" href="{{ path('app_assunto_index') }}">Assuntos</a>
-                        <a class="nav-link" href="{{ path('app_livro_index') }}">Livros</a>
-                        <a class="nav-link active" href="{{ path('app_relatorio_index') }}">Relatório</a>
+                        <a class="nav-link {{ app.request.attributes.get('_route') starts with 'app_home' ? 'active' : '' }}"
+                           href="{{ path('app_home') }}">
+                            Home
+                        </a>
+
+                        <a class="nav-link {{ app.request.attributes.get('_route') starts with 'app_autor_' ? 'active' : '' }}"
+                           href="{{ path('app_autor_index') }}">
+                            Autores
+                        </a>
+
+                        <a class="nav-link {{ app.request.attributes.get('_route') starts with 'app_assunto_' ? 'active' : '' }}"
+                           href="{{ path('app_assunto_index') }}">
+                            Assuntos
+                        </a>
+
+                        <a class="nav-link {{ app.request.attributes.get('_route') starts with 'app_livro_' ? 'active' : '' }}"
+                           href="{{ path('app_livro_index') }}">
+                            Livros
+                        </a>
+
+                        <a class="nav-link {{ app.request.attributes.get('_route') starts with 'app_relatorio_' ? 'active' : '' }}"
+                           href="{{ path('app_relatorio_index') }}">
+                            Relatório
+                        </a>
+
                     </div>
             </div>
         </nav>

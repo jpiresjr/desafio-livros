@@ -93,6 +93,22 @@ Para encerrar os serviços sem remover o volume:
 sudo docker compose down
 ```
 
+### 4.6. Abrir a aplicação
+
+Para cadastrar um livro, é necessário que exista pelo menos um autor e um assunto previamente cadastrados.
+
+Ao utilizar o sistema pela primeira vez, siga estas etapas:
+
+Autores: cadastre os autores que serão associados aos livros.
+
+Assuntos: cadastre os assuntos utilizados na classificação dos livros.
+
+Livros: cadastre os livros e selecione os autores e assuntos existentes.
+
+Os cadastros de autores e assuntos podem ser realizados em qualquer ordem.
+
+A página inicial apresenta essas orientações e disponibiliza atalhos para os respectivos cadastros.
+
 ## 5. Testes automatizados
 
 O projeto utiliza PHPUnit. A configuração do Doctrine aplica o sufixo `_test%env(default::TEST_TOKEN)%` ao nome do banco no ambiente de testes. Sem `TEST_TOKEN`, a conexão baseada em `livros` utiliza o banco **`livros_test`**.
