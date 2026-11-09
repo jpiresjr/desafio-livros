@@ -280,11 +280,13 @@ final class LivroControllerTest extends WebTestCase
 
         $client->request('POST', '/livro/new', $dados);
 
-        self::assertResponseRedirects('/livro');
+//        self::assertResponseRedirects('/livro');
+        self::assertResponseIsSuccessful();
+        self:self::assertSelectorExists('form[name="livro"]');
 
-        $session = $client->getRequest()->getSession();
-        $flashes = $session->getFlashBag()->peek('danger');
+//        $session = $client->getRequest()->getSession();
+//        $flashes = $session->getFlashBag()->peek('danger');
 
-        self::assertContains('Não foi possível cadastrar o livro. Tente novamente mais tarde.', $flashes);
+        self::assertSelectorTextContains('body', 'Não foi possível cadastrar o livro. Tente novamente mais tarde.');
     }
 }

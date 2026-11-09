@@ -48,6 +48,11 @@ final class LivroController extends AbstractController
                     'danger',
                     'Não foi possível cadastrar o livro. Tente novamente mais tarde.'
                 );
+
+                return $this->render('livro/new.html.twig', [
+                    'livro' => $livro,
+                    'form' => $form,
+                ]);
             }
 
             $this->addFlash('success', 'Livro cadastrado com sucesso!');
