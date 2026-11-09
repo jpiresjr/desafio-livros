@@ -142,9 +142,6 @@ Todos os testes:
 sudo docker compose exec app php bin/phpunit
 ```
 
-**Limitação conhecida:** os testes de cadastro e edição ainda podem deixar registros no banco `livros_test`; a limpeza automática não foi concluída. Não execute os testes contra o banco de desenvolvimento ou produção.
-
-
 
 
 
