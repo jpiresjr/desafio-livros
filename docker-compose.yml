@@ -23,6 +23,7 @@ services:
       - "5434:3306"
     volumes:
       - db-data:/var/lib/mysql
+      - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
 
   nginx:
     image: nginx:alpine
